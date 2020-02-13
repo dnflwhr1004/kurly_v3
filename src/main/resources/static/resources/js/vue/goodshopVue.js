@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+var goodshopVue = goodshopVue || {}
 
-	<div class="content" style="width:1300px; height:1500px; border:1px solid black;">
+goodshopVue = {
+	goodshopVue_body:()=>{
+		return `<div class="content" style="width:1300px; height:1500px; border:1px solid black;">
 
 		<div class="head">
 			<h4>알뜰쇼핑</h4>
@@ -204,7 +200,7 @@
 									padding-top: 8px;
 									font-size:13px;
 									color:#666;
-									line-height: 19px;">두피와 모발을 위한 약산성 샴푸3종</span>
+									line-height: 19px;">이테리의 감성을 담은 데체코 토마토 파스타 소스</span>
 						</div>
 
 
@@ -231,7 +227,7 @@
 
 								<span class="pname"
 								style="display: -webkit-box;
-								-webkit-box-orient: vertical;">[웨스트코스트] 자연산훈제 홍연어 85g(냉동)</span>
+								-webkit-box-orient: vertical;">[정직한실험실]시카 샴푸3종</span>
 
 								<span class="cost">
 									<span class="dc" style="text-decoration: line-through;
@@ -244,7 +240,7 @@
 									padding-top: 8px;
 									font-size:13px;
 									color:#666;
-									line-height: 19px;">훈연향을 그득하게 입힌 </span>
+									line-height: 19px;">두피와 모발을 위한 약산성 샴푸 </span>
 						</div>
 
 
@@ -271,7 +267,7 @@
 
 								<span class="pname"
 								style="display: -webkit-box;
-								-webkit-box-orient: vertical;">[베키아에누보] 시그니처 치즈 케이크</span>
+								-webkit-box-orient: vertical;">[웨스트코스트]자연산훈제홍연어85g(냉동)</span>
 
 								<span class="cost">
 									<span class="dc" style="text-decoration: line-through;
@@ -284,7 +280,7 @@
 									padding-top: 8px;
 									font-size:13px;
 									color:#666;
-									line-height: 19px;">정통 뉴욕스타일의 치즈케이크</span>
+									line-height: 19px;">훈연향을 그득하게 입힌</span>
 						</div>
 
 
@@ -295,7 +291,6 @@
 	</div>
 
 
-	</div>
-
-</body>
-</html>
+	</div>`
+	}
+}

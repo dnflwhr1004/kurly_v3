@@ -12,6 +12,7 @@ app = (()=>{
 			login()
 			join2()
 			idsearch()
+			goodshop()
 		})
 
 	}
@@ -94,6 +95,16 @@ app = (()=>{
 			$('loginform').empty()
 			import('/resources/js/vue/idsearchVue.js').then(()=>{
 				$(idsearchVue.idsearchVue_go()).appendTo('.container')
+			})
+		})
+	}
+
+	let goodshop=()=>{
+		$('#good_shop').click(e=>{
+			e.preventDefault()
+			$('.container').empty()
+			import('/resources/js/vue/goodshopVue.js').then(()=>{
+				$(goodshopVue.goodshopVue_body()).appendTo('.container')
 			})
 		})
 	}
