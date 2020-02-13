@@ -24,18 +24,21 @@ homeVue = {
 				<tr>
 					<td id="product1" style="border:1px solid black;
 								width:300px; text-align: center;">
-								<button type="button" style="background : none; border: none;">1</button>
+								<button id="product1_btn" type="button" style="background : none; border: none;">1</button>
 					</td>
-					<td id="product2" style="border:1px solid black;
-								width:300px; text-align: center;">2
+					<td id="product2"  style="border:1px solid black;
+								width:300px; text-align: center;">
+								<button id="product2_btn" type="button" style="background : none; border: none;">2</button>
 
 					</td>
 					<td id="product3" style="border:1px solid black;
-								width:300px; text-align: center;">3
+								width:300px; text-align: center;">
+								<button id="product3_btn" type="button" style="background : none; border: none;">3</button>
 
 					</td>
 					<td id="product4" style="border:1px solid black;
-								width:300px; text-align: center;">4
+								width:300px; text-align: center;">
+								<button id="product4_btn" type="button" style="background : none; border: none;">4</button>
 
 					</td>
 				</tr>

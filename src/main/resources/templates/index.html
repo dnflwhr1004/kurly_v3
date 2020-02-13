@@ -8,15 +8,21 @@
 	<script src="/resources/js/app.js"></script>
 	<script src="/resources/js/home/home.js"></script>
 	<script src="/resources/js/vue/homeVue.js"></script>
+	<script src="/resources/js/vue/detailVue.js"></script>
+	<script src="/resources/js/vue/joinVue.js"></script>
+	<script src="/resources/js/vue/loginVue.js"></script>
+	<script src="/resources/js/vue/idsearchVue.js"></script>
+	
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-	<div class="wrapper" style="height:1500px; width: 1500px; border: 1px solid black;
+	<div class="wrapper" style="width: 1500px; border: 1px solid black;
 								margin : 0 auto;">
 
 	<div id="usermenu" style="width:1500px; height:50px;border: 1px solid black;
 								text-align: right;">
-			회원가입 | 로그인 | 고객센터 | 배송지역검색
+			<a href="" id = "gojoin"> 회원가입</a> <a href="" id="gologin">로그인</a>  고객센터 | 배송지역검색
 	</div>
 	
 	<div id="head" style="width:1500px; height:80px; border: 1px solid black;
@@ -25,15 +31,14 @@
 								헤더이미지
 	</div>
 		<div id="nav" style="height : 50px; width:1500px; text-align: center;">
-				네비게이터
+				<a href="" id ="good_shop">알뜰쇼핑</a>
 				</div>
 		
-		<div class = "container">
-
+		<div class = "container" style="width: 1500px; border:2px solid red;">
+			
 
 		</div>
-		
-		
+
 		<!--mainimg-->
 		
 		<!--recommand-->
@@ -67,8 +72,5 @@
 <script>
 	alert('시작..')
 app.run()
-$('#product1').click(()=>{
-	
-})
 </script>
 </html>
