@@ -1,4 +1,4 @@
-package com.wooyeon.web.company;
+package com.wooyeon.web.users;
 
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
@@ -8,11 +8,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Component
+@Lazy
+@Component 
 @AllArgsConstructor
 @NoArgsConstructor
-@Lazy
-public class Company {
-	private int cseq;
-	private String cname, cinfo;
+
+public class Users {
+	
+	private String userId, userName, gender, passwd, email, mobile, birthday; 
+	
 }

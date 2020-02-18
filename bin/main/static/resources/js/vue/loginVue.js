@@ -26,7 +26,7 @@ loginVue = {
 			</div>
 
 				<div style="display:inline-block;">
-					<button type="submit"  style="display: block;
+					<button id="return_home" type="submit"  style="display: block;
 						width:340px; height:54px;
 						margin:45px auto 0;
 						border: 0;
