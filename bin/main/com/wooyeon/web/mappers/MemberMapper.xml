@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wooyeon.web.mappers.MemberMapper">
+
+	
+   <select id="existId" resultType="int" parameterType="String" >
+    SELECT COUNT(*)
+    FROM users
+    WHERE userid LIKE #{userId}
+   </select>
+   
+   <insert id="insertMember" parameterType="com.wooyeon.web.domains.Member">
+       insert into users (userid, username, gender,  passwd, email, mobile, birthday, addr) values (
+           #{userId}, #{userName}, #{gender}, #{passwd}, #{email},#{mobile},#{birthday}, #{addr}
+       )
+   </insert>
+   
+   
+    <select id="countMember" resultType="int" >
+    SELECT COUNT(*)
+    FROM users
+   </select>
+   
+   <select id="selectUserByIdPw" resultType="com.wooyeon.web.domains.Member" >
+    SELECT *
+    FROM users
+    WHERE userid LIKE #{userId}
+    AND passwd LIKE #{passwd}
+   </select>
+   
+   <update id="updateMember">
+   	
+   </update>
+  
+  <delete id="deleteMember" parameterType="String">
+  	DELETE 
+  	FROM member
+  	WHERE userid LIKE #{userId}
+  </delete>
+  
+</mapper>

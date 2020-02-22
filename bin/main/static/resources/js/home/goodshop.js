@@ -1,3 +1,4 @@
+
 var goodshop = goodshop || {}
 
 login = (()=>{

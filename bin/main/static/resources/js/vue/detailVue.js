@@ -3,7 +3,11 @@ var detailVue = detailVue || {}
 
 detailVue = {
 	detailinfofo1 :()=>{
-		return `<div id = "detailinfo1">
+		return `<div class ="detailWrapper" style="height:1500px; width: 1500px; border: 1px solid black;
+								margin : 0 auto;">
+
+		<!--detailinfo-->
+		<div id = "detailinfo1">
 			
 			<table style="border: 1px solid black;
 						height : 500px; width : 1300px;">
@@ -249,7 +253,8 @@ detailVue = {
 					</td>
 				</tr>
 			</table>
-		</div>`
+		</div>
+	</div>`
 	},
 
 	detailinfofo2:()=>{

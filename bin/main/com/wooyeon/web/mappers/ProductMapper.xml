@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wooyeon.web.mappers.ProductMapper">
+
+	<select id="countProduct">
+	SELECT COUNT(*) 
+	FROM product
+	</select>
+	
+	<update id="updateProduct">
+	
+	</update>
+	
+	<delete id="deleteProduct">
+		DELETE
+		FROM product
+		WHERE prodseq LIKE #{prodseq}
+	</delete>
+	
+	<insert id="insertProduct">
+		INSERT INTO product(prod_name, price, prod_img, sale_unit, prod_info, category)
+		VALUES (#{prod_name},#{price},#{prod_img},#{sale_unit},#{prod_info},#{category})
+	</insert>
+	
+	<select id="selectAll">
+		SELECT *
+		FROM product
+	</select>
+</mapper>

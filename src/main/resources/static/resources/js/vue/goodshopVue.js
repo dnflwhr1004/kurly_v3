@@ -2,24 +2,16 @@ var goodshopVue = goodshopVue || {}
 
 goodshopVue = {
 	goodshopVue_body:()=>{
-		return `<div class="content" style="width:1300px; height:1500px; border:1px solid black;">
+		return `<div style="border:1px solid red; height:80%; width:100%">
 
-		<div class="head">
+		<div>
 			<h4>알뜰쇼핑</h4>
-
-			<ul class="list" style="list-style-type: none;">
-				<li>
-				<a class="on">전체보기</a>
-				</li>
-			</ul>
 		</div>
 
-	<div class="sort_menu">
-		<div class="select_menu" style="float:right;">
-			<a class="">
-				신상품순
-			</a>
-			<ul class="listt" style="list-style-type: none;">
+
+		<div>
+			<a>신상품순</a>
+			<ul class="listt" style="list-style-type: none; data-toggle="dropdown"">
 				<li>
 					<a>혜택순</a>
 				</li>
@@ -37,7 +29,6 @@ goodshopVue = {
 				</li>
 			</ul>
 		</div>
-	</div>
 
 	<div class="list_good">
 		<div class="list_goodss">

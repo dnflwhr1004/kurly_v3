@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 @Configuration
-@MapperScan(basePackages= {"com.wooyeon.web.mapper"})
+@MapperScan(basePackages= {"com.wooyeon.web.mappers"})
 @EnableTransactionManagement
 public class MybatisConfig {
 	@Bean
@@ -18,7 +18,7 @@ public class MybatisConfig {
 		final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSource);
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        sessionFactory.setMapperLocations(resolver.getResources("classpath:com/wooyeon/web/mapper/*.xml"));
+        sessionFactory.setMapperLocations(resolver.getResources("classpath:com/wooyeon/web/mappers/*.xml"));
         return sessionFactory.getObject();
     }
     

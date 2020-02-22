@@ -1,7 +1,7 @@
-var pwsearch = pwsearch || {}
+var pwsearchVue = pwsearchVue || {}
 
-pwsearch = {
-	pwsearchs:()=>{
+pwsearchVue = {
+	pwsearchVue_go:()=>{
 		return `<div><h2 style="text-align: center;">비밀번호 찾기</h2></div>
 
 				<h4 style="text-align: center;">이름</h4>
