@@ -87,31 +87,10 @@ homeVue = {
                   <!-- 회전광고판 항목 -->
                   <div class="carousel-inner">
                     <div class="carousel-item active">
-                         <div class="row" >
-                            <div id="pi1" class=" col-md-3" style="padding: 1%;">
-                                <img class="card-img-top img-zoom" src="https://img-cf.kurly.com/shop/data/goods/1579514501249l0.jpg" alt="">
-                                <span class="name"><a id="detail1" href="">[맛있닭] 다이어트 도시락 3종</a></span>
-                                <br>
-                                <span class="price"> 4,320원</span>
-                            </div>
-                            <div id="pi2" class=" col-md-3" style="padding: 1%; ">
-                                <img class="card-img-top img-zoom" src="https://img-cf.kurly.com/shop/data/goods/1475633955339l0.jpg" alt="">
-                                <span class="name"><a id="detail2" href="">MY FIRST 처음 만나는 진짜 식빵</a></span>
-                                <br>
-                                <span class="price"> 4,900원</span>
-                            </div>
-                            <div id="pi3" class=" col-md-3" style="padding: 1%;">
-                                <img class="card-img-top img-zoom" src="https://img-cf.kurly.com/shop/data/goods/1535621905610l0.jpg" alt="">
-                                <span class="name"><a id="detail3" href="">GAP 인증 실속 사과 한봉지 5~6입</a></span>
-                                <br>
-                                <span class="price"> 5,610원</span>
-                            </div>
-                            <div id="pi4" class=" col-md-3" style="padding: 1%;">
-                                <img class="card-img-top img-zoom" src="https://img-cf.kurly.com/shop/data/goods/1546580814429l0.jpg" alt="">
-                                <span class="name"><a id="detail4" href="">[루토사] 벨지안 와플</a></span>
-                                <br>
-                                <span class="price"> 6,320원</span>
-                            </div>
+                         <div id="pibody" class="row" >
+                            
+                            
+                            
                         </div>
                     </div>
                     <!--두번째 슬라이드 -->

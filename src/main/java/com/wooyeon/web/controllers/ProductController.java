@@ -40,10 +40,10 @@ public class ProductController {
 	@Autowired Map<String, Object> map;
 	
 	@GetMapping("/prodlist")
-	public Map<?, ?> list() {
+	public Map<?, ?> prodlist() {
 		System.out.println("prodcontroller");
 		HashMap<String, List<Product>> map = new HashMap<>();
-		map.put("list", productMapper.selectAll(pager));
+		map.put("prodlist", productMapper.selectAll(pager));
 		return map;
 	}
 	
