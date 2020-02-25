@@ -10,9 +10,12 @@ import com.wooyeon.web.proxies.Pager;
 @Repository
 public interface ProductMapper {
 
-	public void insertProduct(Product p);
-	public String countProduct();
-	public List<Product> selectAll(Pager p);
-	public void updateProduct(Product product);
-	public void deleteProduct(Product product);
+	public void insert(Product product);
+	public void update(Product product);
+	public void delete(String prodSeq);
+	public Product selectByProd(String prod_name);
+	public String count();
+	public List<?> select(Product product);
+	
+	
 }

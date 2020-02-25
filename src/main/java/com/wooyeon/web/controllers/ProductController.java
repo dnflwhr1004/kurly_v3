@@ -20,10 +20,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wooyeon.web.domains.Product;
+import com.wooyeon.web.enums.Messenger;
 import com.wooyeon.web.generics.Box;
 import com.wooyeon.web.generics.Trunk;
 import com.wooyeon.web.mappers.ProductMapper;
 import com.wooyeon.web.proxies.Pager;
+import com.wooyeon.web.services.ProductService;
 import com.wooyeon.web.util.Printer;
 
 @RestController
@@ -33,20 +35,17 @@ public class ProductController {
 	private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
 	@Autowired Product product;
 	@Autowired Printer printer;
-	@Autowired ProductMapper productMapper;
-	@Autowired Box<Product> box;
 	@Autowired Pager pager;
-	@Autowired Trunk<Object> trunk;
 	@Autowired Map<String, Object> map;
+	@Autowired ProductService productService;
 	
 	@GetMapping("/prodlist")
-	public Map<?, ?> prodlist() {
-		System.out.println("prodcontroller");
-		HashMap<String, List<Product>> map = new HashMap<>();
-		map.put("prodlist", productMapper.selectAll(pager));
-		return map;
+	public List<?> prodlist(Product product) {
+		productService.list(product);
+		return productService.list(product);
 	}
 	
+	/*
 	@PostMapping("/")
 	public Map<?, ?> write(@RequestBody Product param) {
 		Consumer<Product> c = t-> productMapper.insertProduct(param);
@@ -75,4 +74,5 @@ public class ProductController {
 		map.put("msg", "SUCCESS");
 		return map;
 	}
+	*/
 }

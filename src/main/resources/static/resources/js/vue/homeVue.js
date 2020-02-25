@@ -95,7 +95,7 @@ homeVue = {
                     </div>
                     <!--두번째 슬라이드 -->
                     <div class="carousel-item ">
-                        <div class="row" >
+                        <div id="pibody" class="row" >
                             <div id="pi1" class=" col-md-3" style="padding: 1%;">
                                 <img class="card-img-top img-zoom" src="https://img-cf.kurly.com/shop/data/goods/1579514501249l0.jpg" alt="">
                                 <span class="name"><a href="">[맛있닭] 다이어트 도시락 3종</a></span>

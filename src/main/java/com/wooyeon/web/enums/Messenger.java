@@ -1,5 +1,5 @@
 package com.wooyeon.web.enums;
 
-public class Messenger {
-
+public enum Messenger {
+	SUCCESS, FAIL
 }

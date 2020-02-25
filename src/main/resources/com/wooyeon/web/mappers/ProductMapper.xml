@@ -24,8 +24,8 @@
 		VALUES (#{prod_name},#{price},#{prod_img},#{sale_unit},#{prod_info},#{category})
 	</insert>
 	
-	<select id="selectAll" resultType="hashmap">
-		SELECT *
-		FROM product
+	<select id="select" resultType="map">
+		select *
+		from product
 	</select>
 </mapper>

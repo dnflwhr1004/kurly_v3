@@ -1,70 +1,42 @@
 "use strict"
 var loginVue = loginVue || {}
 loginVue = {
-	loginVuego : ()=>{
-		return `<div>
-
-			<h3>회원로그인</h3>
-			<div id="write_form"  style="float: left; width:50%;">
-				<div>
-				<input id="userId" style="display:block; float:center; width:340px; height:50px;" type="text" placeholder="아이디를 입력해주세요">
-				
-				<input id="passwd" style="display:block; float:center; width:340px; height:50px; margin-top:5px;" type="text" placeholder="비밀번호를 입력해주세요">
-				</div>
-
-			<div class="searchs">
-
-				<div class="login_search">
-					<a href="" id="search_id">아이디 찾기</a>
-						<span>|</span>
-					<a href="" id="search_pw">비밀번호 찾기</a>
-				</div>
-			</div>
-
-				<div style="display:inline-block;">
-					<button id="loginbtn" type="submit"  style="display: block;
-						width:340px; height:54px;
-						margin:45px auto 0;
-						border: 0;
-						border-radius: 3px;
-						background-color: #5f0080;
-						font-size: 16px;
-						color:#fff;
-						line-height: 44px;
-						letter-spacing: -3.px;">
-						<span>로그인</span>
-					</button>
-					<button id="go_join" type="button" style="display:block; float:center; width:340px; height:50px; margin-top:5px;">회원가입</button>
-				</div>
-			
-			</div>
-
-			<h3>관리자로그인</h3>
-			<div  style="float: left; width:50%;">
-				<div>
-				<input id="adminId" style="display:block; float:center; width:340px; height:50px;" type="text" placeholder="아이디를 입력해주세요">
-				
-				<input id="apasswd" style="display:block; float:center; width:340px; height:50px; margin-top:5px;" type="text" placeholder="비밀번호를 입력해주세요">
-				</div>
-
-				<div style="display:inline-block;">
-					<button id="adminbtn" type="submit"  style="display: block;
-						width:340px; height:54px;
-						margin:45px auto 0;
-						border: 0;
-						border-radius: 3px;
-						background-color: #5f0080;
-						font-size: 16px;
-						color:#fff;
-						line-height: 44px;
-						letter-spacing: -3.px;">
-						<span>로그인</span>
-					</button>
-					<button id="go_join" type="button" style="display:block; float:center; width:340px; height:50px; margin-top:5px;">회원가입</button>
-				</div>
-			
-			</div>
-
-		</div>`
-	}
+   loginVuego : ()=>{
+      return `<div>
+        <div class="container" style="padding: 5%;">
+            <h1 style="font-size: 20px;text-align: center">로그인</h1>
+            <div class="row justify-content-md-center"  style="margin-top: 3%;">
+                <div class="col-md-5">
+                    <input id="userId" type="text" value maxlength="16"
+                     label="userid"  style="width:100%; height:50px;margin-top: 2%;border-radius: 5px;  border: 0.5px solid #D4D4D4; " placeholder="   ID">
+                </div>
+            </div>
+            <div class="row justify-content-md-center"  >
+                <div class="col-md-5">
+                    <input id="passwd" type="text" value maxlength="16"
+                     label="password"  style="width:100%; height:50px;margin-top: 2%;border-radius: 5px;  border: 0.5px solid #D4D4D4; " placeholder="   PASSWORD">
+                </div>
+            </div>
+            <div class="row justify-content-around" style="margin-top: 3%;">
+                <span class="col-5" style="opacity: 0;">d</span>
+                <span class="col-5" >
+                <a id="search_id" href="" style="color: #333; font-size: 14px;">아이디찾기</a> | <a id="search_pw" href="" style="color: #333;font-size: 14px;">비밀번호 찾기</a></span>
+            </div>
+            <div class="row justify-content-md-center"  style="margin-top: 3%;">
+                <div class="col-md-5">
+                    <button id="loginbtn" type="button" style="width: 100%; height:50px;background-color: #5f0080;color: #fff;border-radius: 5px;letter-spacing: -1px;font-weight: 500;">
+                    로그인</button>
+                </div>
+            </div>
+            <div class="row justify-content-md-center"  style="margin-top: 1%;">
+                <div class="col-md-5">
+                    <button id="go_join" type="button" style="width: 100%; height:50px;background-color: #fff;color: #5f0080;border-radius: 5px;letter-spacing: -1px;font-weight: 500;">
+                    회원가입</button>
+                </div>
+            </div>
+            
+        </div>
+    </div>`
+   
+   }
 }

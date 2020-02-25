@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wooyeon.web.domains.Cart;
+import com.wooyeon.web.enums.Messenger;
 import com.wooyeon.web.generics.Trunk;
 import com.wooyeon.web.mappers.CartMapper;
 import com.wooyeon.web.proxies.Pager;
+import com.wooyeon.web.services.CartService;
 import com.wooyeon.web.util.Printer;
 
 @RestController
@@ -27,19 +29,19 @@ public class CartController {
 	private static final Logger logger = LoggerFactory.getLogger(CartController.class);
 	@Autowired Cart cart;
 	@Autowired Printer printer;
-	@Autowired CartMapper cartMapper;
 	@Autowired Pager pager;
 	@Autowired Trunk<Object> trunk;
 	@Autowired Map<String, Object> map;
+	@Autowired CartService cartService;
 	
 	@GetMapping("/cartlist")
-	public Map<?, ?> list() {
+	public Messenger list(@RequestBody Cart param) {
 		System.out.println("cartcontroller");
-		HashMap<String, List<Cart>> map = new HashMap<>();
-		map.put("list", cartMapper.selectAll(pager));
-		return map;
+		cartService.list(param);
+		return Messenger.SUCCESS;
 	}
 	
+	/*
 	@DeleteMapping("/{cartSeq}")
 	public Map<?, ?> delete(@PathVariable String cartSeq, @RequestBody Cart param) {
 		Consumer<Cart> c = t-> cartMapper.deleteCart(param);
@@ -49,7 +51,7 @@ public class CartController {
 		
 		return map;
 	}
-	
+	*/
 	
 	
 }

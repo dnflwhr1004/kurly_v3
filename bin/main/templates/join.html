@@ -1,223 +1,215 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+    
 </head>
 <body>
+ <style>
+        .opacity-text{
+            opacity: 0;
+        }
+     ::placeholder {
+      color: #D4D4D4;
+     font-size: 12px;
+      padding: 1%;
+      opacity: 1; /* Firefox */
+    }
 
-	<div class="wrapper" style="height:1500px; width:1000px; padding: 10%; border: solid;border-color: green;">	
-		<!--joininfo-->
-		<div id = "joininfo" style=" border:1px solid black; padding-top: 5%">
-			<p style="text-align: center;">회원가입</p>
-		</div>
-		<div>
-			<p style="float: right">*필수입력사항</p>
-		</div>
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+     color: #D4D4D4;
+        padding: 1%;
+    }
 
-		<div class="writer" style="height:1200px; width:900px; display:inline-block; padding: 5%; border:1px solid black;">
-			<table class="board" style="
-										border:1px solid #f3f2f4;
-										background-color: #ffff;
-										height : 700px; width : 900px;
-										display:inline-block;">
-
-			<tr style="width:609px; height:60px;">
-				<td style="width: 149px; height:60px;">아이디*</td>
-				<td style="width: 460px; height:60px;"><input type="text" value maxlength="16"
-				label="id" style="width:300px; height:40px;" placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합">
-				<button type="button" style="width: 150px; height:40px;">중복확인</button>
-			</td>
-			</tr>
-
-			<tr style="width:609px; height:60px;">
-				<td style="width: 149px; height:60px;">비밀번호*</td>
-				<td style="width: 460px; height:60px;"><input type="text" value maxlength="16"
-				label="id" style="width:300px; height:40px;" placeholder="비밀번호를 입력해주세요">
-			</td>
-			</tr>
-
-			<tr style="width:609px; height:60px;">
-				<td style="width: 149px; height:60px;">비밀번호확인*</td>
-				<td style="width: 460px; height:60px;"><input type="text" value maxlength="16"
-				label="id" style="width:300px; height:40px;" placeholder="비밀번호를 한번 더 입력해주세요">
-			</td>
-			</tr>
-
-			<tr style="width:609px; height:60px;">
-				<td style="width: 149px; height:60px;">이름*</td>
-				<td style="width: 460px; height:60px;"><input type="text" value maxlength="16"
-				label="id" style="width:300px; height:40px;" placeholder="고객님의 이름을 입력해주세요">
-			</td>
-			</tr>
-
-			<tr style="width:609px; height:60px;">
-				<td style="width: 149px; height:60px;">이메일*</td>
-				<td style="width: 460px; height:60px;"><input type="text" value maxlength="16"
-				label="id" style="width:300px; height:40px;" placeholder="예 : marketkurly@kurly.com">
-				<button type="button" style="width: 150px; height:40px;">이메일중복확인</button>
-			</td>
-			</tr>
-
-			<tr style="width:609px; height:60px;">
-				<td style="width: 149px; height:60px;">휴대폰*</td>
-				<td style="width: 460px; height:60px;">
-					<input type="text" value maxlength="16"
-					label="id" style="width:300px; height:40px;" placeholder="숫자만 입력해주세요">
-					<button type="button" style="width: 150px; height:40px;">인증번호받기</button>
-					
-					<input type="text" value maxlength="16"
-					label="id" style="width:300px; height:40px;" placeholder="인증번호를 입력해주세요">
-					<button type="button" style="width: 150px; height:40px;">인증번호확인</button>
-			</td>
-			</tr>
-
-			<tr style="width:609px; height:87px;">
-				<td style="width:149px; height:87px;">
-					배송 주소
-				</td>
-				<td style="width:460px; height:87px;">
-					<button type="button" style="width:150px; height:40px;">주소검색</button>
-				</td>
-			</tr>
-
-			<tr style="width:609px; height:48px;">
-				<td style="width:609px; height:48px;">
-					성별
-				</td>
-				<td>
-					<div class="groupRadio"
-					style="width:460px; height:40px;">
-						<label style="width:57px; height: 18px;">
-							<input type="radio" style="width: 13px; height: 13px;">
-							<span style="width:36px; height:20px;">남자</span>
-						</label>
-
-						<label style="width:57px; height: 18px;">
-							<input type="radio" style="width: 13px; height: 13px;">
-							<span style="width:36px; height:20px;">여자</span>
-						</label>
-
-						<label style="width:57px; height: 18px;">
-							<input type="radio" style="width: 13px; height: 13px;">
-							<span style="width:36px; height:20px;">선택안함</span>
-						</label>
-					</div>
-				</td>
-			</tr>
-
-			<tr style="width:609px; height:86px;">
-				<td style="width:149px; height:86px;">
-					생년월일
-				</td>
-				<td>
-					<div style="width:300px; height:40px;">
-						<input type="text" style="width:80px; height:37px; text-align: center;" placeholder="YYYY">
-						<span>
-							<span>/</span>
-						</span>
-
-						<input type="text" style="width:80px; height:37px; text-align: center;" placeholder="MM">
-						<span>
-							<span>/</span>
-						</span>
-
-						<input type="text" style="width:80px; height:37px; text-align: center;" placeholder="DD">
-
-					</div>
-				</td>
-			</tr>
-			</table>
-
-			<div style="width:640px; height:365px; padding: 29px 0 21px 29px;
-										border:1px solid #f3f2f4;
-										background-color: #ffff;
-										margin: 12%;
-										border:2px solid black;">
-			
-			<div style="width: 609px; height:57px; display:inline-block;">
-				<h3 style="width:130px; height:28px; float: left;
-							font-weight: 700; font-size: 20px; line-height: 28px;">이용약관동의*</h3>
-				<p style="width:460px; height:27px; float: left; 
-				padding-left: 10px; font-size: 12px; line-height: 17px;padding-top: 10px;">
-				선택항목에 동의하지 않은 경우도 회원가입 및 일반적인 서비스를 이용할 수 있습니다.</p>
-			</div>
-
-			<div style="width:609px; height:42px; float: left;">
-				<label for="">
-					<input type="checkbox">
-						<span>전체동의</span>
-				</label>
-			</div>
-
-			<div style="width:609px; height:42px; float: left;">
-				<label for="">
-					<input type="checkbox">
-						<span>이용약관(필수)</span>
-				</label>
-			</div>
-
-			<div style="width:609px; height:42px; float: left;">
-				<label for="">
-					<input type="checkbox">
-						<span>개인정보처리방침(필수)</span>
-				</label>
-			</div>
-
-						<div style="width:609px; height:42px; float: left;">
-				<label for="">
-					<input type="checkbox">
-						<span>개인정보처리방침(선택)</span>
-				</label>
-			</div>
-
-						<div style="width:609px; height:42px; float: left;">
-				<label for="">
-					<input type="checkbox">
-						<span>무료배송,할인쿠폰 등 혜택 / 정보 수신(선택)</span>
-				</label>
-
-				<div style="width:583px; height:26px; padding-left: 26px;">
-					<label for="">
-						<input type="checkbox">
-						<span>SMS</span>
-					</label>
-					<label for="">
-						<input type="checkbox">
-						<span>SMS</span>
-					</label>
-				</div>
-
-				<div style="width:583px; height:30px;">
-					<label for="">
-						<input type="checkbox">
-						<span>본인은 만 14세 이상입니다.(필수)</span>
-					</label>
-
-				</div>
-				
-			</div>
-
-			</div>
-
-		<div style="width:640px; height:54px; display:inline-block;">
-			<button type="submit"
-			style="display: block;
-			width:340px; height:54px;
-			margin:45px auto 0;
-			border: 0;
-			border-radius: 3px;
-			background-color: #5f0080;
-			font-size: 16px;
-			color:#fff;
-			line-height: 44px;
-			letter-spacing: -3.px;">
-				가입하기
-			</button>
-		</div>
-
-		</div>
-	</div>
-
+    ::-ms-input-placeholder { /* Microsoft Edge */
+     color: #D4D4D4;
+        padding: 1%;
+    }
+        
+</style>
+  <!--join view -->
+   <div  style="background-color:#f9f9f9;">
+       <div class="container" style="background-color:#fff;">
+        <h1 style="letter-spacing: -2px; text-align: center">회원가입</h1>
+        <p class="float-right">*필수입력사항</p>
+        <br>
+        <div class="row" style="text-align: center;">
+            <div class="col-md-4" style="padding-top: 1%">*아이디</div>
+            <div class="col-md-4"><input type="text" value maxlength="16"
+            label="id" style="width:100%;height:40px;border-radius: 5px;  border: 0.5px solid #D4D4D4;" placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합">
+            </div>
+            <div class="col-md-4">
+                <button type="button" style="width: 150px; height:40px;background-color: #5f0080;color: #fff;border-radius: 5px;">
+                중복확인</button>
+            </div>
+            
+            <div class="col-md-4" style="padding-top: 1%;margin-top: 3%; ">
+                * 비밀 번호
+            </div>
+            <div class="col-md-4"  style="margin-top: 3%;">
+             <input type="text" value maxlength="16"
+            label="password"  style="width:100%; height:40px;margin-top: 2%;border-radius: 5px;  border: 0.5px solid #D4D4D4; " placeholder="비밀번호를 입력해주세요">
+            </div>
+            <div class="col-md-4 opacity-text" style="margin-top: 3%;">d</div>
+            <div class="col-md-4" style="padding-top: 1%;margin-top: 3%;">
+                *비밀번호 확인
+            </div>
+            <div class="col-md-4" style="margin-top: 3%;" >
+             <input type="text" value maxlength="16"
+            label="password"  style="width:100%; height:40px;margin-top: 2%; border-radius: 5px;  border: 0.5px solid #D4D4D4;" placeholder="비밀번호를 한번 더 입력해주세요">
+            </div>
+            <div class="col-md-4 opacity-text" style="margin-top: 3%;">d</div>
+            <div class="col-md-4" style="padding-top: 1%;margin-top: 3%;">
+                *이름
+            </div>
+            <div class="col-md-4" style="margin-top: 3%;" >
+             <input type="text" value maxlength="16"
+            label="password"  style="width:100%; height:40px; margin-top: 1%;border-radius: 5px;  border: 0.5px solid #D4D4D4;" placeholder="고객님의 이름을 입력해주세요">
+            </div>
+            <div class="col-md-4 opacity-text">d</div>
+            <div class="col-md-4" style="padding-top: 1%;margin-top: 3%;">
+                *이메일
+            </div>
+            <div class="col-md-4" style="margin-top: 3%;" >
+             <input type="text" 
+            label="email"  style="width:100%; height:40px; margin-top: 1%;border-radius: 5px;  border: 0.5px solid #D4D4D4;" placeholder="예: marketkurly@kurly.com">
+            </div>
+            <div class="col-md-4 opacity-text"style="margin-top: 3%;">d</div>
+            <div class="col-md-4" style="padding-top: 1%;margin-top: 3%;">
+                *휴대폰
+            </div>
+            <div class="col-md-4"  style="margin-top: 3%;">
+             <input type="text" 
+            label="mobile"  style="width:100%; height:40px; margin-top: 1%;border-radius: 5px;  border: 0.5px solid #D4D4D4;" placeholder="숫자만 입력해주세요">
+            </div>
+            <div class="col-md-4" style="margin-top: 3%;">
+                <button type="button" style="width: 150px; height:40px;background-color: #DDD;color: #fff;border-radius: 5px;letter-spacing: -1px;">
+                인증번호받기</button>
+            </div>
+            <div class="col-md-4 opacity-text"style="margin-top: 3%;">d</div>
+            <div class="col-md-4"  style="margin-top: 3%;">
+             <input type="text" 
+            label="mobile"  style="width:100%; height:40px; margin-top: 1%;border-radius: 5px;  border: 0.5px solid #D4D4D4;" placeholder="">
+            </div>
+            <div class="col-md-4" style="margin-top: 3%;">
+                <button type="button" style="width: 150px; height:40px;background-color:#fff;color:#DDD;border-radius: 5px;letter-spacing: -1px;">
+                인증번호확인</button>
+            </div>
+            <div class="col-md-4" style="padding-top: 1%;margin-top: 3%;">
+                *배송주소
+            </div>
+            <div class="col-md-4" style="margin-top: 3%;">
+                <button id="findAddress" type="button" style="margin-top: 1%;width: 100%; height:40px;background-color: #5f0080;color: #fff;border-radius: 5px;">
+                주소검색</button>
+            </div>
+            <div class="col-md-4" style="margin-top: 3%;">
+                <p  style="font-size: 12px; color: #333;padding: 5%"> 배송가능여부를 확인할 수 있습니다.</p>
+            </div>
+            <div class="col-md-4" style="padding-top: 1%;margin-top: 3%;">
+                *성별
+            </div>
+            <div class="col-md-4" style="margin-top: 3%;">
+               <div class="row" style="margin-top: 3%;"> 
+                    <input type="radio" aria-label="남자"><p style="margin-left:3%;margin-right: 8%; margin-top: -1%;font-size: 14px">남자</p>
+                    <input type="radio" aria-label="남자" ><p style="margin-left:3%;margin-right: 8%; margin-top: -1%;font-size: 14px">여자</p>
+                    <input type="radio" aria-label="남자"><p style="margin-left:3%;margin-right: 8%; margin-top: -1%;font-size: 14px">선택안함</p>
+               </div>
+            </div>
+            <div class="col-md-4 opacity-text"style="margin-top: 3%;">d</div>
+            <div class="col-md-4" style="padding-top: 1%;margin-top: 3%;">
+                *생년월일
+            </div>
+            <div class="col-md-4" style="margin-top: 3%;" >
+             <input type="date" value="xxx" min="yyy" max="zzz" label="birthday" style="width:100%; height:40px;margin-top: 2%; border-radius: 5px;  border: 0.5px solid #D4D4D4;" >
+            </div>
+            <div class="col-md-4 opacity-text"style="margin-top: 3%;">d</div>
+            <div class="col-md-4 opacity-text"style="margin-top: 3%;">d</div>
+            <div class="col-md-4 opacity-text"style="margin-top: 3%;">d</div>
+            <div class="col-md-4 opacity-text"style="margin-top: 3%;">d</div>
+            
+        </div>
+    </div>
+    <br >
+    <div class="container" style="background-color: #fff;">
+       <div class="row">
+           <h1 style="color: #333;font-size: 20px;">*이용약관동의*</h1>
+           <p>선택항목에 동의하지 않은 경우도 회원가입 및 일반적인 서비스를 이용하실수 있습니다.</p>
+       </div>
+       <!--이용약관 박스 넣기!!-->
+        <div class="container">
+            <!--이용약관 박스 넣기!!-->
+             <div >
+            <label for="">
+               <input type="checkbox">
+                  <span>개인정보처리방침(필수)</span>
+            </label>
+         </div>
+        <div >
+            <label for="">
+               <input type="checkbox">
+                  <span>개인정보처리방침(선택)</span>
+            </label>
+         </div>
+                  <div >
+            <label for="">
+               <input type="checkbox">
+                  <span>무료배송,할인쿠폰 등 혜택 / 정보 수신(선택)</span>
+            </label>
+            <div >
+               <label for="">
+                  <input type="checkbox">
+                  <span>SMS</span>
+               </label>
+               <label for="">
+                  <input type="checkbox">
+                  <span>SMS</span>
+               </label>
+            </div>
+            <div >
+               <label for="">
+                  <input type="checkbox">
+                  <span>본인은 만 14세 이상입니다.(필수)</span>
+               </label>
+            
+            </div>
+              <div >
+               <label for="">
+                  <input type="checkbox">
+                  <span>전체선택</span>
+               </label>
+            
+            </div>
+         </div>
+         </div>
+        </div>
+    </div>
+    
+    <div class="row justify-content-md-center" style="padding: 4%;">
+       <button type="button" style="letter-spacing: -1px;padding: 1.5%;width: 30%; background-color: #5f0080;color: #fff;border-radius: 5px;">
+                가입하기
+       </button>
+    </div>
+    
+    
+   </div>
+  <!--join view end -->  
+  <script>
+$('#findAddress').click(()=>{
+    alert('dfsdfsds')
+    var pop = window.open("/address.html","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+});
+    
+function jusoCallBack(roadFullAddr){
+		// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.	
+		document.form.userAddr.value = roadFullAddr;		
+}
+</script>
 </body>
 </html>

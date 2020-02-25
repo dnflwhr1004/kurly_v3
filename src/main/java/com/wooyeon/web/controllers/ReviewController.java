@@ -20,50 +20,44 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wooyeon.web.domains.Review;
+import com.wooyeon.web.enums.Messenger;
 import com.wooyeon.web.generics.Box;
 import com.wooyeon.web.generics.Trunk;
 import com.wooyeon.web.mappers.ReviewMapper;
 import com.wooyeon.web.proxies.Pager;
+import com.wooyeon.web.services.ReviewService;
 import com.wooyeon.web.util.Printer;
 
 @RestController
-@RequestMapping("review")
+@RequestMapping("/review")
 public class ReviewController {
 
 	private static final Logger logger = LoggerFactory.getLogger(ReviewController.class);
 	@Autowired Map<String, Object> map;
 	@Autowired Review review;
 	@Autowired Printer printer;
-	@Autowired ReviewMapper reviewMapper;
 	@Autowired Box<Review> box;
 	@Qualifier Pager pager;
 	@Autowired Trunk<Object> trunk;
+	@Autowired ReviewService reviewService;
+	
+	
+	
+	@GetMapping("/reviewlist")
+	public List<?> reviewlist(Review review) {
+		System.out.println("review>>>>" + reviewService.list(review));
+		return reviewService.list(review);
+	}
 	
 	@PostMapping("/")
-	public Map<?, ?> write(@RequestBody Review param) {
-		
-		Consumer<Review> r = t-> reviewMapper.insertReview(param);
-		r.accept(param);
-		Supplier<String> s =()->reviewMapper.countReview()+"";
-		trunk.put(Arrays.asList("msg","count"),
-				Arrays.asList("SUCCESS", s.get()));
-		return trunk.get();
-	}
+	public Messenger write(@RequestBody Review param) {
+		printer.accept("write들어옴 : " + param.toString());
+		reviewService.save(param);
+		return Messenger.SUCCESS;
+	} 
 	
-	@GetMapping("/page/{pageNo}/size/{pageSize}")
-	public Map<?, ?> list(@PathVariable String pageNo, 
-			@PathVariable String pageSize) {
-		System.out.println("넘어온 페이지 넘버 :" +pageNo);
-		pager.setPageNum(pager.integer(pageNo));
-		pager.setPageSize(pager.integer(pageSize));
-		pager.paging();
-		box.clear();
-		Supplier<List<Review>> s = ()-> reviewMapper.selectAll(pager);
-		printer.accept("해당 페이지 글목록"+s.get());
-		trunk.put(Arrays.asList("articles","pxy"),
-				Arrays.asList(s.get(),pager));
-		return trunk.get();
-	}
+	/*
+	
 	
 	@GetMapping("/count")
 	
@@ -92,4 +86,5 @@ public class ReviewController {
 		map.put("msg", "SUCCESS");
 		return map;
 	}
+	*/
 }

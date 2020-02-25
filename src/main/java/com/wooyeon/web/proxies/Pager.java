@@ -27,7 +27,7 @@ public class Pager extends Proxy {
 		
 		
 		public void paging() {
-		Supplier<String> s = ()-> reviewMapper.countReview();
+		Supplier<String> s = ()-> reviewMapper.count();
 		totalCount = Integer.parseInt(s.get());
 		System.out.println("프록시 안에서 찍은 전체글 갯수: "+totalCount);
 		pageCount = (totalCount % pageSize != 0) ? (totalCount / pageSize)+1 : totalCount / pageSize;

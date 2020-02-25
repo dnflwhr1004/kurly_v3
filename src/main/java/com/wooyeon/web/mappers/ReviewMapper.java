@@ -10,9 +10,10 @@ import com.wooyeon.web.proxies.Pager;
 @Repository
 public interface ReviewMapper {
 
-	public void insertReview(Review r);
-	public String countReview();
-	public List<Review> selectAll(Pager o);
-	public void updateReview(Review review);
-	public void deleteReview(Review review);
+	public void insert(Review review);
+	public void update(Review review);
+	public void delete(String artSeq);
+	public Review selectByReview(String comments);
+	public String count();
+	public List<?> select(Review review);
 }

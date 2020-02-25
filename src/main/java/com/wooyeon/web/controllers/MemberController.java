@@ -1,5 +1,7 @@
 package com.wooyeon.web.controllers;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -15,68 +17,83 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.wooyeon.web.domains.Member;
+import com.wooyeon.web.enums.Messenger;
 import com.wooyeon.web.mappers.MemberMapper;
+import com.wooyeon.web.proxies.Pager;
+import com.wooyeon.web.services.MemberService;
 import com.wooyeon.web.util.Printer;
 
 @RestController
-@RequestMapping("/member")
+@RequestMapping("/members")
 public class MemberController {
 
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class); 
 	@Autowired Map<String, Object> map;
 	@Autowired Member member;
 	@Autowired Printer printer;
-	@Autowired MemberMapper memberMapper;
+	@Autowired MemberService memberService;
+	@Autowired Pager pager;
 	
-	@GetMapping("/{userId}/exist")
-	public Map<?, ?> existId(@PathVariable String userId) {
-		Function<String, Integer> p = o-> memberMapper.existId(userId);
-		map.clear();
-		printer.accept("중복체크카운트:"+ p.apply(userId));
-		map.put("msg", (p.apply(userId)==0) ? "SUCCESS" : "FAIL");
-		return map;
+	@PostMapping("/")
+	public Messenger join(@RequestBody Member param) {
+		printer.accept("join 들어옴:" +param.toString());
+		memberService.save(param);
+		return Messenger.SUCCESS;
 	}
 	
-	@PostMapping("/join")
-	public Map<?, ?> join(@RequestBody Member param) {
-		printer.accept("join 들어옴:" +param.toString());
-		Consumer<Member> m = o->memberMapper.insertMember(param);
-		m.accept(param);
+	
+	@PutMapping("/{id}")
+	public Messenger updateMember(@PathVariable String id, @RequestBody Member param) {
+		
 		map.clear();
 		map.put("msg", "SUCCESS");
-		return map;
+		return Messenger.SUCCESS;
+	}
+	
+	@DeleteMapping("/{id}")
+	public Messenger delete(@PathVariable String userId, @RequestBody Member param) {
+		memberService.remove(param);
+		return Messenger.SUCCESS;
 	}
 	
 	@PostMapping("/login")
 	public Member login(@RequestBody Member param) {
-		Function<Member, Member> m = t->memberMapper.selectUserByIdPw(param);
-		System.out.println("000000"+param);
-		return m.apply(param);
+		return memberService.login(param);
 	}
-
 	
+	@GetMapping("/{userId}/existId")
+	public Messenger existId(@PathVariable String userId) {
+		Messenger answer = null;
+		String m = memberService.existId(userId);
+		System.out.println("DBanswer ::" +m);
+		
+		
+		if(m ==null) {
+			answer= Messenger.SUCCESS;
+		}else {
+			answer=Messenger.FAIL;
+		}
+		return answer;
+	}
+	
+	@PostMapping("/selectNIP")
+	public Member selectNIP(@RequestBody Member member) {
+		System.out.println("controller"+member.getUserId());
+		return memberService.selectNIP(member);
+	}
+	
+	@GetMapping("/checkEmail")
+	 public List<?> selectAllEmail(){
+		 System.out.println("All member");
+		 return memberService.listAllEmail();
+	 }
+	/*
 	@GetMapping("/search")
 	public Member searchMemberById(@PathVariable String userId, @RequestBody Member param) {
 		Function<Member, Member> f= t-> memberMapper.selectUserByIdPw(param);
 		return f.apply(param);
 	}
-	
-	@PutMapping("/update")
-	public Map<?, ?> updateMember(@PathVariable String userId, @RequestBody Member param) {
-		Consumer<Member> m = o->memberMapper.updateMember(param);
-		m.accept(param);
-		map.clear();
-		map.put("msg", "SUCCESS");
-		return map;
-	}
-	
-	@DeleteMapping("/remove")
-	public Map<?, ?> removeMember(@PathVariable String userId, @RequestBody Member param) {
-		Consumer<Member> m = o->memberMapper.deleteMember(param);
-		m.accept(param);
-		map.clear();
-		map.put("msg", "SUCCESS");
-		return map;
-	}
+	*/
+
 	
 }
