@@ -9,20 +9,20 @@ idsearchVue = {
 				<h4 style="text-align: center;">이름</h4>
 			<div style="display: inline-block;">
 				<div style="border:1px solid blue; display: block;">
-					<input style="width:340px; height:50px; display: block;" type="text" placeholder="고객님의 이름을 입력해주세요">
+					<input id="userName" style="width:340px; height:50px; display: block;" type="text" placeholder="고객님의 이름을 입력해주세요">
 				</div>
 
 				<h4 style="text-align: center;">이메일</h4>
 
 				<div style="border:1px solid red; display: block;">
-					<input style="width:340px; height:50px; display: block;" type="text" placeholder="가입시 등록하신 이메일 주소를 입력해주세요">
+					<input id="email" style="width:340px; height:50px; display: block;" type="text" placeholder="가입시 등록하신 이메일 주소를 입력해주세요">
 				</div>
 			</div>
 			
 		</div>
 
-			<div>
-				<button type="submit"
+			<div> 
+				<button id="findById" type="submit"
 				style="display: block;
 				width:340px; height:54px;
 				margin:45px auto 0;

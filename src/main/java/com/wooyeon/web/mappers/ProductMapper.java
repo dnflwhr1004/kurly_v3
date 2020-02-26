@@ -13,9 +13,10 @@ public interface ProductMapper {
 	public void insert(Product product);
 	public void update(Product product);
 	public void delete(String prodSeq);
-	public Product selectByProd(String prod_name);
+	public Product selectByProd(String prodName);
 	public String count();
 	public List<?> select(Product product);
+	public Product[] selectRecommand();
 	
 	
 }

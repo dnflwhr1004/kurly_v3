@@ -4,51 +4,80 @@
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wooyeon.web.mappers.MemberMapper">
 
-	
-   <select id="existId" resultType="string" parameterType="string">
-    select userid
-    from users
-    where userid LIKE #{userId}
+	<select id="selectById"
+		parameterType="com.wooyeon.web.domains.Member"
+		resultType="com.wooyeon.web.domains.Member">
+		SELECT *
+		FROM users
+		WHERE userid LIKE #{userId}
+		AND passwd LIKE #{passwd}
+	</select>
+
+	<select id="existId" resultType="string" parameterType="string">
+		select userid
+		from users
+		where userid LIKE #{userId}
+	</select>
+
+	<select id="selectNIP"
+		resultType="com.wooyeon.web.domains.Member"
+		parameterType="com.wooyeon.web.domains.Member">
+		select *
+		from users
+		where userid like #{userId} and passwd like #{passwd}
+	</select>
+
+	<insert id="insert"
+		parameterType="com.wooyeon.web.domains.Member">
+		insert into users (userid, username, gender, passwd, email, mobile,
+		birthday, addr) values (
+		#{userId}, #{userName}, #{gender}, #{passwd}, #{email},#{mobile},#{birthday},
+		#{addr}
+		)
+	</insert>
+
+
+	<select id="count" resultType="int">
+		select count(*)
+		from users
+	</select>
+
+
+	<select id="selectUserByIdPw"
+		parameterType="com.wooyeon.web.domains.Member"
+		resultType="com.wooyeon.web.domains.Member">
+		SELECT *
+		FROM users
+		WHERE userid LIKE #{userId}
+		AND  passwd LIKE #{passwd}
+	</select>
+
+	<update id="update"
+		parameterType="com.wooyeon.web.domains.Member">
+		update users
+		set passwd like #{passwd},
+			mobile like #{mobile},
+			email like #{email}
+		
+		
+	</update>
+
+	<delete id="delete" parameterType="String">
+		delete
+		from member
+		where userid like #{userId}
+	</delete>
+
+	<select id="listAllEmail" resultType="Map">
+		SELECT email
+		FROM users
+	</select>
+
+	<select id="selectUserByName" resultType="com.wooyeon.web.domains.Member" >
+	  	SELECT *
+	    FROM users
+	    WHERE username LIKE #{userName}
+	    AND email LIKE #{email}
    </select>
-   
-   <select id="selectNIP" resultType="com.wooyeon.web.domains.Member" parameterType="com.wooyeon.web.domains.Member">
-   		select * 
-   		from users
-   		where userid like #{userId} and passwd like #{passwd}
-   </select>
-   
-   <insert id="insert" parameterType="com.wooyeon.web.domains.Member">
-       insert into users (userid, username, gender,  passwd, email, mobile, birthday, addr) values (
-           #{userId}, #{userName}, #{gender}, #{passwd}, #{email},#{mobile},#{birthday}, #{addr}
-       )
-   </insert>
-   
-   
-    <select id="count" resultType="int" >
-    select count(*)
-    from users
-   </select>
-   
-   <select id="selectUserByIdPw" resultType="com.wooyeon.web.domains.Member" >
-    select *
-    from users
-    where userid like #{userId}
-    and passwd like #{passwd}
-   </select>
-   
-   <update id="update">
-   	
-   </update>
-  
-  <delete id="delete" parameterType="String">
-  	delete 
-  	from member
-  	where userid like #{userId}
-  </delete>
-  
-  <select id="listAllEmail" resultType="Map" >
-    SELECT email
-	FROM users
-   </select>
-  
+
 </mapper>

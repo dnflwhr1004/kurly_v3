@@ -20,12 +20,23 @@
 	</delete>
 	
 	<insert id="insertProduct">
-		INSERT INTO product(prod_name, price, prod_img, sale_unit, prod_info, category)
-		VALUES (#{prod_name},#{price},#{prod_img},#{sale_unit},#{prod_info},#{category})
+		INSERT INTO product(prodname, price, prodimg, saleunit, prodinfo, category, recommand)
+		VALUES (#{prodname},#{price},#{prodimg},#{saleunit},#{prodinfo},#{category},#{recommand})
 	</insert>
 	
-	<select id="select" resultType="map">
+	<select id="select" resultType="com.wooyeon.web.domains.Product">
 		select *
 		from product
+	</select>
+	<select id="selectRecommand" resultType="com.wooyeon.web.domains.Product">
+		select *
+		from product
+		where recommand like '1'
+	</select>
+	
+	<select id = "selectByProd" parameterType="com.wooyeon.web.domains.Product" resultType="com.wooyeon.web.domains.Product">
+		select *
+		from product 
+		where prodseq like #{prodseq}
 	</select>
 </mapper>

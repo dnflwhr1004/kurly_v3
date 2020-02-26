@@ -29,7 +29,7 @@ import com.wooyeon.web.services.ProductService;
 import com.wooyeon.web.util.Printer;
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/products")
 public class ProductController {
 
 	private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
@@ -39,40 +39,39 @@ public class ProductController {
 	@Autowired Map<String, Object> map;
 	@Autowired ProductService productService;
 	
-	@GetMapping("/prodlist")
-	public List<?> prodlist(Product product) {
-		productService.list(product);
-		return productService.list(product);
-	}
-	
-	/*
 	@PostMapping("/")
-	public Map<?, ?> write(@RequestBody Product param) {
-		Consumer<Product> c = t-> productMapper.insertProduct(param);
-		c.accept(param);
-		Supplier<String> s =()-> productMapper.countProduct()+"";
-		trunk.put(Arrays.asList("msg","count"),
-				Arrays.asList("SUCCESS",s.get()));
-		return trunk.get();
-	}
-
-	
-	@PutMapping("/{prodSeq}")
-	public Map<?, ?> update(@PathVariable String prodSeq, @RequestBody Product param) {
-		Consumer<Product> p = t-> productMapper.updateProduct(param);
-		p.accept(param);
-		map.clear();
-		map.put("msg", "SUCCESS");
-		return map;
+	public Messenger write(@RequestBody Product param) {
+		return Messenger.SUCCESS;
 	}
 	
-	@DeleteMapping("/{prodSeq}")
-	public Map<?, ?> delete(@PathVariable String prodSeq, @RequestBody Product param) {
-		Consumer<Product> p = t->productMapper.deleteProduct(param);
-		p.accept(param);
-		map.clear();
-		map.put("msg", "SUCCESS");
-		return map;
+	@PutMapping("/{id}")
+	public Messenger update(@RequestBody Product param) {
+		productService.edit(param);
+		return Messenger.SUCCESS;
 	}
-	*/
+	
+	@DeleteMapping("/{id}")
+	public Messenger delete(@RequestBody Product param) {
+		productService.remove(param);
+		return Messenger.SUCCESS;
+	}
+	
+	@GetMapping("/")
+	public List<?> get(Pager pager) {
+		return productService.list(pager);
+	}
+	@GetMapping("/{id}")
+	public Product get(@PathVariable String id) {
+		System.out.println(">>> 2" + id);
+		Product p = productService.detail(id);
+		System.out.println(">>> 3"+p.toString());
+		return p;
+	}
+	
+	@GetMapping("/recommands")
+	public Product[] getRecommands() {
+		System.out.println("recomands");
+		return productService.listRecommand();
+	}
+	
 }
